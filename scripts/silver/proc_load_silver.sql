@@ -143,10 +143,23 @@ BEGIN
 				WHEN sls_due_dt = 0 OR LEN(sls_due_dt) != 8 THEN NULL
 				ELSE CAST(CAST(sls_due_dt AS VARCHAR) AS DATE)
 			END AS sls_due_dt,
-			CASE 
-				WHEN sls_sales IS NULL OR sls_sales <= 0 OR sls_sales != sls_quantity * ABS(sls_price) 
-					THEN sls_quantity * ABS(sls_price)
-				ELSE sls_sales
+			CASE	-- use the fixed price
+        		WHEN sls_sales IS NULL OR sls_sales <= 0 
+					OR sls_sales != sls_quantity * ABS(
+                 		CASE 
+                     		WHEN sls_price IS NULL OR sls_price <= 0 
+                         		THEN sls_sales / NULLIF(sls_quantity, 0)
+                     			ELSE sls_price
+                 		END
+            		)
+        			THEN sls_quantity * ABS(
+            			CASE 
+                			WHEN sls_price IS NULL OR sls_price <= 0 
+                    			THEN sls_sales / NULLIF(sls_quantity, 0)
+								ELSE sls_price
+						END
+					)
+					ELSE sls_sales
 			END AS sls_sales, -- Recalculate sales if original value is missing or incorrect
 			sls_quantity,
 			CASE 
