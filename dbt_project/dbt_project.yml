@@ -1,0 +1,22 @@
+name: 'recloud_ecom'
+version: '1.0'
+config-version: 2
+
+profile: 'recloud_ecom'
+
+source-paths: ["models"]
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_modules"
+
+models:
+  recloud_ecom:
+    +materialized: view
+    bronze:
+      +materialized: view
+    silver:
+      +materialized: table
+    gold:
+      +materialized: incremental
+      +incremental_strategy: merge
