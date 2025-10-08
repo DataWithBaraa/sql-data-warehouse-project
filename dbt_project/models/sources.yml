@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: bronze_ds
+    database: "{{ env_var('GCP_PROJECT', 'recloud-ecom-dwh') }}"
+    schema: "bronze_ds"
+    tables:
+      - name: crm_cust_info
+      - name: crm_prd_info
+      - name: crm_sales_details
+      - name: erp_cust_az12
+      - name: erp_loc_a101
+      - name: erp_px_cat_g1v2
