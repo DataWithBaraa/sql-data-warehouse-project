@@ -25,7 +25,7 @@ END;
 GO
 
 -- Create the 'DataWarehouse' database
-CREATE DATABASE DataWarehouse;
+CREATE DATABASE DataWarehouse COLLATE Latin1_General_100_CI_AS_SC_UTF8;
 GO
 
 USE DataWarehouse;
