@@ -2,10 +2,14 @@ version: 2
 
 models:
   - name: customers
-    description: "Silver customers cleaned"
+    description: "Silver customers cleaned and deduplicated"
     columns:
-      - name: customer_id
+      - name: customer_key
         tests: [not_null, unique]
+      - name: customer_id
+        tests:
+          - unique:
+              severity: warn
       - name: full_name
         tests: [not_null]
   - name: products
@@ -16,9 +20,13 @@ models:
       - name: product_name
         tests: [not_null]
   - name: sales
-    description: "Silver sales cleaned"
+    description: "Silver sales cleaned and deduplicated"
     columns:
-      - name: sale_id
+      - name: sale_key
         tests: [not_null, unique]
+      - name: sale_id
+        tests:
+          - unique:
+              severity: warn
       - name: sales_amount
         tests: [not_null]

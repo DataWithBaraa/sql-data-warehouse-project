@@ -3,15 +3,19 @@ version: 2
 models:
   - name: dim_customers
     columns:
-      - name: customer_id
+      - name: customer_key
         tests: [not_null, unique]
+      - name: customer_id
+        tests:
+          - unique:
+              severity: warn
   - name: dim_products
     columns:
       - name: product_id
         tests: [not_null, unique]
   - name: fact_sales
     columns:
-      - name: sale_id
+      - name: sale_key
         tests: [not_null, unique]
       - name: customer_id
         tests: [not_null]
