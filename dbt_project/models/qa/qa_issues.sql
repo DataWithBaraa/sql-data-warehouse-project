@@ -3,11 +3,11 @@
 with customers_nulls as (
   select
     'customers' as table_name,
-    null as sale_key,
-    null as sale_id,
-    customer_id,
+    cast(null as string) as sale_key,
+    cast(null as string) as sale_id,
+    cast(customer_id as string) as customer_id,
     full_name,
-    null as sales_amount,
+    cast(null as numeric) as sales_amount,
     'NULL_CUSTOMER' as issue,
     current_timestamp() as detected_at
   from {{ ref('customers') }}
@@ -19,8 +19,8 @@ sales_nulls as (
     'sales' as table_name,
     sale_key,
     sale_id,
-    customer_id,
-    null as full_name,
+    cast(customer_id as string) as customer_id,
+    cast(null as string) as full_name,
     sales_amount,
     case when sales_amount is null then 'NULL_SALES_AMOUNT' else null end as issue,
     current_timestamp() as detected_at
@@ -32,11 +32,11 @@ bronze_dupes as (
   -- log bronze-level duplicate sale ids for audit
   select
     'bronze_sales_dup' as table_name,
-    null as sale_key,
+    cast(null as string) as sale_key,
     sls_ord_num as sale_id,
-    null as customer_id,
-    null as full_name,
-    null as sales_amount,
+    cast(null as string) as customer_id,
+    cast(null as string) as full_name,
+    cast(null as numeric) as sales_amount,
     concat('BRONZE_DUPLICATE_COUNT=', cast(count(*) as string)) as issue,
     current_timestamp() as detected_at
   from {{ source('bronze_ds','crm_sales_details') }}

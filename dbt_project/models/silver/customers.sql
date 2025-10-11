@@ -20,7 +20,7 @@ unified as (
     raw.cst_create_date as create_date,
     current_timestamp() as dwh_create_date
   from raw
-  left join erp on raw.cst_id = erp.cst_id
+  left join erp on cast(raw.cst_id as string) = erp.cid
 ),
 
 -- remove fully-empty rows and dedupe by customer_id keeping latest
