@@ -1,0 +1,63 @@
+```mermaid
+graph LR
+    subgraph "Sources (bronze_ds)"
+        S1[crm_cust_info]
+        S2[crm_prd_info]
+        S3[crm_sales_details]
+        S4[erp_cust_az12]
+        S5[erp_loc_a101]
+        S6[erp_px_cat_g1v2]
+    end
+
+    subgraph "Silver Models (silver_ds_silver_ds)"
+        M1[customers<br/>Deduplication by customer_id<br/>Name completeness priority<br/>NULL-safe customer_key]
+        M2[products<br/>Product standardization<br/>Data type casting]
+        M3[sales<br/>Deduplication by sale_id<br/>Sales amount computation<br/>NULL-safe sale_key]
+    end
+
+    subgraph "Gold Models (silver_ds_gold_ds)"
+        G1[dim_customers<br/>Customer dimension<br/>Incremental MERGE<br/>unique_key: customer_key]
+        G2[dim_products<br/>Product dimension<br/>Incremental MERGE<br/>unique_key: product_id]
+        G3[fact_sales<br/>Sales fact table<br/>Incremental MERGE<br/>unique_key: sale_key]
+    end
+
+    subgraph "QA Models (silver_ds)"
+        Q1[qa_issues<br/>Audit trail<br/>Filtered rows<br/>Duplicate tracking]
+    end
+
+    subgraph "dbt Tests"
+        T1[19 tests total<br/>18 passing<br/>1 warning<br/>Surrogate key validation]
+    end
+
+    S1 --> M1
+    S4 --> M1
+    S2 --> M2
+    S3 --> M3
+
+    M1 --> G1
+    M2 --> G2
+    M3 --> G3
+
+    M1 --> Q1
+    M3 --> Q1
+    S3 --> Q1
+
+    M1 --> T1
+    M2 --> T1
+    M3 --> T1
+    G1 --> T1
+    G2 --> T1
+    G3 --> T1
+
+    classDef source fill:#CD7F32,stroke:#8B4513,stroke-width:2px,color:#fff
+    classDef silver fill:#C0C0C0,stroke:#696969,stroke-width:2px,color:#000
+    classDef gold fill:#FFD700,stroke:#DAA520,stroke-width:2px,color:#000
+    classDef qa fill:#FF6B6B,stroke:#E55353,stroke-width:2px,color:#fff
+    classDef test fill:#4ECDC4,stroke:#45B7AF,stroke-width:2px,color:#fff
+
+    class S1,S2,S3,S4,S5,S6 source
+    class M1,M2,M3 silver
+    class G1,G2,G3 gold
+    class Q1 qa
+    class T1 test
+```

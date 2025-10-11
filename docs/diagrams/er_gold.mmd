@@ -1,0 +1,39 @@
+```mermaid
+erDiagram
+    DIM_CUSTOMERS {
+        STRING customer_key PK
+        INT64 customer_id
+        STRING full_name
+        STRING gender
+        DATE create_date
+        TIMESTAMP last_seen
+    }
+
+    DIM_PRODUCTS {
+        INT64 product_id PK
+        STRING product_key
+        STRING product_name
+        INT64 product_cost
+        STRING product_line
+        DATE start_date
+        DATE end_date
+        TIMESTAMP last_updated
+    }
+
+    FACT_SALES {
+        STRING sale_key PK
+        STRING sale_id
+        INT64 customer_id FK
+        INT64 product_key FK
+        DATE order_date
+        DATE ship_date
+        DATE due_date
+        INT64 quantity
+        NUMERIC price
+        NUMERIC sales_amount
+        TIMESTAMP dwh_create_date
+    }
+
+    DIM_CUSTOMERS ||--o{ FACT_SALES : "customer_id"
+    DIM_PRODUCTS  ||--o{ FACT_SALES : "product_key"
+```

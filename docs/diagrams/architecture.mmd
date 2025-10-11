@@ -1,0 +1,88 @@
+```mermaid
+graph TB
+    subgraph "Data Sources"
+        CSV1[CRM CSV Files<br/>- cust_info.csv<br/>- prd_info.csv<br/>- sales_details.csv]
+        CSV2[ERP CSV Files<br/>- CUST_AZ12.csv<br/>- LOC_A101.csv<br/>- PX_CAT_G1V2.csv]
+    end
+
+    subgraph "Google Cloud Storage"
+        GCS[GCS Bucket<br/>Raw Files Storage]
+    end
+
+    subgraph "BigQuery - Bronze Layer (bronze_ds)"
+        B1[crm_cust_info<br/>18,494 records]
+        B2[crm_prd_info<br/>397 records]
+        B3[crm_sales_details<br/>60,398 records]
+        B4[erp_cust_az12<br/>18,484 records]
+        B5[erp_loc_a101<br/>18,484 records]
+        B6[erp_px_cat_g1v2<br/>37 records]
+    end
+
+    subgraph "dbt - Transformation Layer"
+        DBT[dbt Core v1.10.2<br/>- Data Quality Tests<br/>- Deduplication<br/>- NULL-safe Transformations]
+    end
+
+    subgraph "BigQuery - Silver Layer (silver_ds_silver_ds)"
+        S1[customers<br/>18,494 unique records<br/>Deduplicated & cleaned]
+        S2[products<br/>397 records<br/>Standardized]
+        S3[sales<br/>27,659 unique records<br/>58% deduplication]
+    end
+
+    subgraph "BigQuery - Gold Layer (silver_ds_gold_ds)"
+        G1[dim_customers<br/>Customer dimension<br/>Incremental MERGE]
+        G2[dim_products<br/>Product dimension<br/>Incremental MERGE]
+        G3[fact_sales<br/>Sales fact table<br/>Star schema optimized]
+    end
+
+    subgraph "BigQuery - QA Layer (silver_ds)"
+        QA[qa_issues<br/>17,996 audit records<br/>Data quality tracking]
+    end
+
+    subgraph "Analytics & BI"
+        BI[Business Intelligence<br/>- Dashboards<br/>- Reports<br/>- ML Models]
+        DOCS[dbt Documentation<br/>Interactive lineage<br/>Data catalog]
+    end
+
+    CSV1 --> GCS
+    CSV2 --> GCS
+    GCS --> B1
+    GCS --> B2
+    GCS --> B3
+    GCS --> B4
+    GCS --> B5
+    GCS --> B6
+
+    B1 --> DBT
+    B2 --> DBT
+    B3 --> DBT
+    B4 --> DBT
+    B5 --> DBT
+    B6 --> DBT
+
+    DBT --> S1
+    DBT --> S2
+    DBT --> S3
+    DBT --> QA
+
+    S1 --> G1
+    S2 --> G2
+    S3 --> G3
+
+    G1 --> BI
+    G2 --> BI
+    G3 --> BI
+    
+    DBT --> DOCS
+
+    classDef bronze fill:#CD7F32,stroke:#8B4513,stroke-width:2px,color:#fff
+    classDef silver fill:#C0C0C0,stroke:#696969,stroke-width:2px,color:#000
+    classDef gold fill:#FFD700,stroke:#DAA520,stroke-width:2px,color:#000
+    classDef qa fill:#FF6B6B,stroke:#E55353,stroke-width:2px,color:#fff
+    classDef process fill:#4ECDC4,stroke:#45B7AF,stroke-width:2px,color:#fff
+
+    class B1,B2,B3,B4,B5,B6 bronze
+    class S1,S2,S3 silver
+    class G1,G2,G3 gold
+    class QA qa
+    class DBT,GCS process
+```
