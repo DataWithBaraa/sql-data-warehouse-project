@@ -11,7 +11,7 @@ The Gold Layer is the business-level data representation, structured to support 
 
 | Column Name      | Data Type     | Description                                                                                   |
 |------------------|---------------|-----------------------------------------------------------------------------------------------|
-| customer_key     | INT           | Surrogate key uniquely identifying each customer record in the dimension table.               |
+| customekey     | INT           | Surrogate key uniquely identifying each customer record in the dimension table.               |
 | customer_id      | INT           | Unique numerical identifier assigned to each customer.                                        |
 | customer_number  | NVARCHAR(50)  | Alphanumeric identifier representing the customer, used for tracking and referencing.         |
 | first_name       | NVARCHAR(50)  | The customer's first name, as recorded in the system.                                         |
@@ -56,6 +56,6 @@ The Gold Layer is the business-level data representation, structured to support 
 | order_date      | DATE          | The date when the order was placed.                                                           |
 | shipping_date   | DATE          | The date when the order was shipped to the customer.                                          |
 | due_date        | DATE          | The date when the order payment was due.                                                      |
-| sales_amount    | INT           | The total monetary value of the sale for the line item, in whole currency units (e.g., 25).   |
+| amount    | INT           | The total monetary value of the sale for the line item, in whole currency units (e.g., 25).   |
 | quantity        | INT           | The number of units of the product ordered for the line item (e.g., 1).                       |
-| price           | INT           | The price per unit of the product for the line item, in whole currency units (e.g., 25).      |
+| selling_price           | INT           | The price per unit of the product for the line item, in whole currency units (e.g., 25).      |
