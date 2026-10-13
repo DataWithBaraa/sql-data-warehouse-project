@@ -27,7 +27,7 @@ GROUP BY customer_key
 HAVING COUNT(*) > 1;
 
 -- ====================================================================
--- Checking 'gold.product_key'
+-- Checking 'gold.dim_products'
 -- ====================================================================
 -- Check for Uniqueness of Product Key in gold.dim_products
 -- Expectation: No results 

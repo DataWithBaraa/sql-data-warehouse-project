@@ -79,26 +79,32 @@ For more details, refer to [docs/requirements.md](docs/requirements.md).
 data-warehouse-project/
 │
 ├── datasets/                           # Raw datasets used for the project (ERP and CRM data)
+│   ├── source_crm/                     # CRM source: customers, products, sales details
+│   ├── source_erp/                     # ERP source: customer birthdates and gender, locations, product categories
 │
 ├── docs/                               # Project documentation and architecture details
-│   ├── etl.drawio                      # Draw.io file shows all different techniquies and methods of ETL
-│   ├── data_architecture.drawio        # Draw.io file shows the project's architecture
-│   ├── data_catalog.md                 # Catalog of datasets, including field descriptions and metadata
-│   ├── data_flow.drawio                # Draw.io file for the data flow diagram
-│   ├── data_models.drawio              # Draw.io file for data models (star schema)
-│   ├── naming-conventions.md           # Consistent naming guidelines for tables, columns, and files
+│   ├── requirements.md                 # Project requirements (also as Project_Requirements.pdf)
+│   ├── data_architecture.png           # The project's architecture (bronze, silver, gold)
+│   ├── data_flow.png                   # Data flow diagram
+│   ├── data_integration.png            # How the source tables relate to each other
+│   ├── data_model.png                  # Data model (star schema)
+│   ├── ETL.png                         # The ETL techniques and methods used
+│   ├── data_catalog.md                 # Catalog of the gold layer, field descriptions and metadata
+│   ├── naming_conventions.md           # Consistent naming guidelines for tables, columns, and files
+│   ├── data_layers.pdf                 # The three layers side by side
+│   ├── Project_Notes_Sketches.pdf      # Baraa's project notes and sketches
 │
 ├── scripts/                            # SQL scripts for ETL and transformations
+│   ├── init_database.sql               # Creates the database and the three schemas
 │   ├── bronze/                         # Scripts for extracting and loading raw data
 │   ├── silver/                         # Scripts for cleaning and transforming data
 │   ├── gold/                           # Scripts for creating analytical models
 │
-├── tests/                              # Test scripts and quality files
+├── tests/                              # Quality checks for the silver and gold layers
 │
 ├── README.md                           # Project overview and instructions
 ├── LICENSE                             # License information for the repository
-├── .gitignore                          # Files and directories to be ignored by Git
-└── requirements.txt                    # Dependencies and requirements for the project
+└── .gitignore                          # Files and directories to be ignored by Git
 ```
 ---
 

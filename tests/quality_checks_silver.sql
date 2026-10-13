@@ -83,6 +83,7 @@ WHERE prd_end_dt < prd_start_dt;
 -- Checking 'silver.crm_sales_details'
 -- ====================================================================
 -- Check for Invalid Dates
+-- Note: this check reads bronze, because silver already stores these columns as real dates
 -- Expectation: No Invalid Dates
 SELECT 
     NULLIF(sls_due_dt, 0) AS sls_due_dt 
