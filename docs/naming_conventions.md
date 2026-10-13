@@ -68,7 +68,7 @@ This document outlines the naming conventions used for schemas, tables, views, c
 - **`dwh_<column_name>`**  
   - `dwh`: Prefix exclusively for system-generated metadata.  
   - `<column_name>`: Descriptive name indicating the column's purpose.  
-  - Example: `dwh_load_date` → System-generated column used to store the date when the record was loaded.
+  - Example: `dwh_create_date` → System-generated column used to store the date when the record was loaded into the warehouse.
  
 ## **Stored Procedure**
 
