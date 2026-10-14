@@ -4,6 +4,13 @@ Welcome to the **Data Warehouse and Analytics Project** repository! 🚀
 This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
 
 ---
+## 🚀 Start here
+
+1. You need SQL Server and SSMS. The course materials carry a setup guide for Windows and Mac: `sql-ultimate-course/00_setup/SETUP GUIDE - read me first.pdf`.
+2. The six source files sit in `datasets/`: three from the CRM system, three from the ERP system.
+3. The bronze loader, `scripts/bronze/proc_load_bronze.sql`, reads them from `C:\sql\dwh_project\datasets\`, the folder used in the videos. Put the folder there, or change the six paths in the script. The folder must be readable by SQL Server: a folder directly on `C:\` works, Downloads often does not.
+
+---
 ## 🏗️ Data Architecture
 
 The data architecture for this project follows Medallion Architecture **Bronze**, **Silver**, and **Gold** layers:
