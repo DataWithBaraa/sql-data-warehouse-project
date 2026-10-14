@@ -19,7 +19,3 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Ignore exported data or diagrams (if applicable)
-*.csv
-*.png
-*.pdf
