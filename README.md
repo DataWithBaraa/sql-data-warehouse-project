@@ -1,14 +1,28 @@
 # Data Warehouse and Analytics Project
 
+[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@datawithbaraa) [![Udemy](https://img.shields.io/badge/Udemy-A435F0?style=for-the-badge&logo=udemy&logoColor=white)](https://www.udemy.com/course/building-a-modern-data-warehouse-data-engineering-bootcamp/) [![Website](https://img.shields.io/badge/datawithbaraa.com-111111?style=for-the-badge&logo=googlechrome&logoColor=white)](https://www.datawithbaraa.com) [![License](https://img.shields.io/github/license/DataWithBaraa/sql-data-warehouse-project?style=for-the-badge&color=2EA043)](LICENSE) [![Stars](https://img.shields.io/github/stars/DataWithBaraa/sql-data-warehouse-project?style=for-the-badge&color=F5B301)](https://github.com/DataWithBaraa/sql-data-warehouse-project)
+
 Welcome to the **Data Warehouse and Analytics Project** repository! 🚀  
 This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
 
----
-## 🚀 Start here
+**New here? Open the setup guide in the `00_setup` folder.** It walks you through installing SQL Server and creating the databases, on Windows and Mac, with the fixes for the common errors.
 
-1. You need SQL Server and SSMS. The course materials carry a setup guide for Windows and Mac: `sql-ultimate-course/00_setup/SETUP GUIDE - read me first.pdf`.
-2. The six source files sit in `datasets/`: three from the CRM system, three from the ERP system.
-3. The bronze loader, `scripts/bronze/proc_load_bronze.sql`, reads them from `C:\sql\dwh_project\datasets\`, the folder used in the videos. Put the folder there, or change the six paths in the script. The folder must be readable by SQL Server: a folder directly on `C:\` works, Downloads often does not.
+```
+sql-data-warehouse-project/
+├── 00_setup/           the setup guide: SQL Server and SSMS on Windows and Mac
+├── datasets/
+│   ├── source_crm/     customers, products, sales details
+│   └── source_erp/     customer birthdates and gender, locations, product categories
+├── docs/               the architecture, the data flow, the data model, the catalog, the naming conventions
+├── scripts/
+│   ├── init_database.sql   creates the database and the three schemas
+│   ├── bronze/         loads the raw files as they are
+│   ├── silver/         cleans and standardizes
+│   └── gold/           the star schema for analytics
+└── tests/              the quality checks of the silver and gold layers
+```
+
+The bronze loader, `scripts/bronze/proc_load_bronze.sql`, reads the six files from `C:\sql\dwh_project\datasets\`, the folder used in the videos. Put the folder there, or change the six paths in the script.
 
 ---
 ## 🏗️ Data Architecture
@@ -42,7 +56,6 @@ This project involves:
 
 ## 🛠️ Important Links & Tools:
 
-Everything is for Free!
 - **[Datasets](datasets/):** Access to the project dataset (csv files).
 - **[SQL Server Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads):** Lightweight server for hosting your SQL database.
 - **[SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16):** GUI for managing and interacting with databases.
@@ -81,78 +94,40 @@ These insights empower stakeholders with key business metrics, enabling strategi
 
 For more details, refer to [docs/requirements.md](docs/requirements.md).
 
-## 📂 Repository Structure
-```
-data-warehouse-project/
-│
-├── datasets/                           # Raw datasets used for the project (ERP and CRM data)
-│   ├── source_crm/                     # CRM source: customers, products, sales details
-│   ├── source_erp/                     # ERP source: customer birthdates and gender, locations, product categories
-│
-├── docs/                               # Project documentation and architecture details
-│   ├── requirements.md                 # Project requirements (also as Project_Requirements.pdf)
-│   ├── data_architecture.png           # The project's architecture (bronze, silver, gold)
-│   ├── data_flow.png                   # Data flow diagram
-│   ├── data_integration.png            # How the source tables relate to each other
-│   ├── data_model.png                  # Data model (star schema)
-│   ├── ETL.png                         # The ETL techniques and methods used
-│   ├── data_catalog.md                 # Catalog of the gold layer, field descriptions and metadata
-│   ├── naming_conventions.md           # Consistent naming guidelines for tables, columns, and files
-│   ├── data_layers.pdf                 # The three layers side by side
-│   ├── Project_Notes_Sketches.pdf      # Baraa's project notes and sketches
-│
-├── scripts/                            # SQL scripts for ETL and transformations
-│   ├── init_database.sql               # Creates the database and the three schemas
-│   ├── bronze/                         # Scripts for extracting and loading raw data
-│   ├── silver/                         # Scripts for cleaning and transforming data
-│   ├── gold/                           # Scripts for creating analytical models
-│
-├── tests/                              # Quality checks for the silver and gold layers
-│
-├── README.md                           # Project overview and instructions
-├── LICENSE                             # License information for the repository
-└── .gitignore                          # Files and directories to be ignored by Git
-```
 ---
 
-## ☕ Stay Connected
+## 🎓 Learn with me
 
-Let's stay in touch! Feel free to connect with me on the following platforms:
+Watch on YouTube, or take the guided version with a certificate on my Academy or Udemy.
 
-[![YouTube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](http://bit.ly/3GiCVUE)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/baraa-khatib-salkini)
-[![Website](https://img.shields.io/badge/Website-000000?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.datawithbaraa.com)
-[![Newsletter](https://img.shields.io/badge/Newsletter-FF5722?style=for-the-badge&logo=substack&logoColor=white)](https://bit.ly/BaraaNewsletter)
-[![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/baraasalkini)
-[![Join](https://img.shields.io/badge/Join-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@datawithbaraa)
+| Course | YouTube | My Academy | Udemy |
+|:--|:--|:--|:--|
+| **SQL** | [Full course](https://youtu.be/SSKVgrwhzus) · [Playlist](https://www.youtube.com/playlist?list=PLNcg_FV9n7qZY_2eAtUzEUulNjTJREhQe) | [Full Package](https://www.datawithbaraa.com/course/sql-full-course-for-beginners) · [Handbook](https://academy.datawithbaraa.com/l/digital_download/1087406/the-sql-handbook) | [SQL Bootcamp](https://www.udemy.com/course/the-complete-sql-bootcamp-30-hours-go-from-zero-to-hero/?referralCode=D20781228C2EB8B98339) · [SQL for Analytics](https://www.udemy.com/course/sql-mastery-for-data-analytics-and-business-intelligence/) |
+| **Python** | [Full course](https://youtu.be/Rq5gJVxz55Q) · [Playlist](https://www.youtube.com/playlist?list=PLNcg_FV9n7qZGfFl2ANI_zISzNp257Lwn) | [Full Package](https://www.datawithbaraa.com/course/the-ultimate-python-mastery) · [Handbook](https://academy.datawithbaraa.com/l/digital_download/998313/the-python-handbook) | [Python Bootcamp](https://www.udemy.com/course/the-complete-python-bootcamp-13hours-go-from-zero-to-hero/?referralCode=776491A4119FF8AF41CA) |
+| **Tableau** | [Full course](https://youtu.be/K3pXnbniUcM) · [Playlist](https://www.youtube.com/playlist?list=PLNcg_FV9n7qZJqrKcUUCWCWPYCrlcVm9v) | [Full Package](https://www.datawithbaraa.com/course/tableau-ultimate-full-course-for-beginners) | [Tableau Course](https://www.udemy.com/course/the-tableau-ultimate-course-from-zero-to-hero/?referralCode=6544726FDC491A6B25EC) · [Chart Masterclass](https://www.udemy.com/course/the-tableau-ultimate-chart-masterclass-63-tableau-charts/) |
+| **Power BI** | [Full course](https://www.youtube.com/playlist?list=PLNcg_FV9n7qZge4KDGqGtqgiuVuhVZWzu) | | |
+| **Databricks** | [Full course](https://www.youtube.com/playlist?list=PLNcg_FV9n7qZWchr-GE5iPPBmOjiffK6O) | | |
 
-All Courses and their materials are completely free, and all I ask is your support through subscribing, liking, and commenting on my channel. Your engagement means the world to me and It help the channel!
-- ✅ **SQL Full Course:** [Course Link](https://youtu.be/SSKVgrwhzus) | [Download Materials](https://www.datawithbaraa.com/sql-introduction/sql-ultimate-course/) | [GIT Repo](https://github.com/DataWithBaraa/sql-ultimate-course)
-- ✅ **Tableau Full Course:** [Course Link](https://www.youtube.com/watch?v=K3pXnbniUcM) | [Download Materials](https://www.datawithbaraa.com/tableau/tableau-thank-you/) | [Public](https://public.tableau.com/app/profile/baraa.salkini/vizzes)
+Materials on my website: [SQL](https://www.datawithbaraa.com/wiki/sql) · [Python](https://www.datawithbaraa.com/wiki/python) · [Tableau](https://www.datawithbaraa.com/wiki/tableau) · [Power BI](https://www.datawithbaraa.com/wiki/power-bi)
 
-- ✅ **SQL Data Warehouse Project:** [Course Link](https://youtu.be/SSKVgrwhzus) | [Download Materials](https://www.datawithbaraa.com/sql-introduction/advanced-sql-project/) | [GIT Repo](https://github.com/DataWithBaraa/sql-data-warehouse-project)
-- ✅ **SQL Exploratory Data Analysis Project:** [Course Link](https://youtu.be/SSKVgrwhzus) | [Download Materials](https://www.datawithbaraa.com/sql-introduction/advanced-sql-analytics-project/) | [GIT Repo](https://github.com/DataWithBaraa/sql-data-analytics-project)
-- ✅ **SQL Advanced Data Analysis Project:** [Course Link](https://youtu.be/SSKVgrwhzus) | [Download Materials](https://www.datawithbaraa.com/sql-introduction/advanced-sql-analytics-project/) | [GIT Repo](https://github.com/DataWithBaraa/sql-data-analytics-project)
-  
-- ✅ **Tableau Sales Project:** [Course Link](https://www.youtube.com/watch?v=dahrmqT5GD4) | [Download Materials](https://datawithbaraa.substack.com/p/access-to-course-materials) | [Public](https://public.tableau.com/app/profile/baraa.salkini/vizzes)
-- ✅ **Tableau HR Project:** [Course Link](https://www.youtube.com/watch?v=UcGF09Awm4Y) | [Download Materials](https://datawithbaraa.substack.com/p/access-to-course-materials) | [Public](https://public.tableau.com/app/profile/baraa.salkini/vizzes)
-- ✅ **ChatGPT:** [Course Link](https://www.youtube.com/watch?v=LJLNfei4i-c) | [Download Materials](https://datawithbaraa.substack.com/p/access-to-course-materials)
+### The SQL projects
 
----
+| Project | YouTube | Materials | Udemy |
+|:--|:--|:--|:--|
+| **Data Warehouse** | [Watch](https://youtu.be/9GVqKuTVANE) | this repository | [Building a Modern Data Warehouse](https://www.udemy.com/course/building-a-modern-data-warehouse-data-engineering-bootcamp/) |
+| **Exploratory Data Analysis** | [Watch](https://youtu.be/6cJ5Ji8zSDg) | [Repository](https://github.com/DataWithBaraa/sql-data-analytics-project) | [SQL for Exploratory Data Analysis](https://www.udemy.com/course/sql-for-exploratory-data-analysis-eda-real-world-project/) |
+| **Advanced Data Analytics** | [Watch](https://youtu.be/2jGhQpbzHes) | same repository | |
+
+More on YouTube: [Data projects](https://www.youtube.com/playlist?list=PLNcg_FV9n7qZ4Ym8ZriYT6WF8TaC2e_R7) · [Data careers](https://www.youtube.com/playlist?list=PLNcg_FV9n7qah95jp-aPtysu7kFCbg7hd)
+
+## 🤝 Connect
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge)](https://www.linkedin.com/in/baraa-khatib-salkini/) [![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/gsVJbMxKcA) [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/datawithbaraa/) [![TikTok](https://img.shields.io/badge/TikTok-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://www.tiktok.com/@datawithbaraa) [![Newsletter](https://img.shields.io/badge/Newsletter-FF6719?style=for-the-badge&logo=substack&logoColor=white)](https://www.blog.datawithbaraa.com) [![Notion Roadmaps](https://img.shields.io/badge/Notion_Roadmaps-000000?style=for-the-badge&logo=notion&logoColor=white)](https://www.notion.com/@datawithbaraa)
 
 ## 🛡️ License
 
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
+[MIT](LICENSE). Use it, change it, share it, with attribution.
 
-## 🌟 About Me
+## 🌟 About me
 
-Hi there! I'm **Baraa Khatib Salkini**, also known as **Data With Baraa**. I’m an IT professional and passionate YouTuber on a mission to share knowledge and make working with data enjoyable and engaging!
-
-Let's stay in touch! Feel free to connect with me on the following platforms:
-
-[![YouTube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](http://bit.ly/3GiCVUE)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/baraa-khatib-salkini)
-[![Website](https://img.shields.io/badge/Website-000000?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.datawithbaraa.com)
-[![Newsletter](https://img.shields.io/badge/Newsletter-FF5722?style=for-the-badge&logo=substack&logoColor=white)](https://bit.ly/BaraaNewsletter)
-[![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/baraasalkini)
-[![Join](https://img.shields.io/badge/Join-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@datawithbaraa)
+Hi, I'm **Baraa Khatib Salkini**. I spent 17 years in enterprise data engineering and built one of the largest lakehouses at Mercedes-Benz. Today I teach data full-time at **Data With Baraa**: visually, step by step, from zero to hero.
