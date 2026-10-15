@@ -9,17 +9,17 @@ This project demonstrates a comprehensive data warehousing and analytics solutio
 
 ```
 sql-data-warehouse-project/
-├── 00_setup/           the setup guide, and the one-click Docker setup for Mac
-├── datasets/
-│   ├── source_crm/     customers, products, sales details
-│   └── source_erp/     customer birthdates and gender, locations, product categories
-├── docs/               the architecture, the data flow, the data model, the catalog, the naming conventions
-├── scripts/
-│   ├── init_database.sql   creates the database and the three schemas
-│   ├── bronze/         loads the raw files as they are
-│   ├── silver/         cleans and standardizes
-│   └── gold/           the star schema for analytics
-└── tests/              the quality checks of the silver and gold layers
+├── 00_setup/               the setup guide, and the one-click Docker start for Mac
+├── datasets/               the six source files the project loads
+│   ├── source_crm/         three files from the CRM system
+│   └── source_erp/         three files from the ERP system
+├── docs/                   the requirements, the diagrams and the notes
+├── scripts/                the project scripts, in the order of the videos
+│   ├── init_database.sql   creates the database: run it first
+│   ├── bronze/             loads the raw files
+│   ├── silver/             cleans and prepares the data
+│   └── gold/               builds the tables for analysis
+└── tests/                  checks the quality of the silver and gold data
 ```
 
 The bronze loader, `scripts/bronze/proc_load_bronze.sql`, reads the six files from `C:\sql\dwh_project\datasets\`, the folder used in the videos. Put the folder there, or change the six paths in the script.
