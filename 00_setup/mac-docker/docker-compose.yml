@@ -1,0 +1,16 @@
+# SQL Server 2022 for the Data Warehouse project. start.command puts the datasets where the scripts look: C:\sql\dwh_project\datasets\.
+# Double-click start.command on a Mac; this file is what it runs.
+services:
+  sql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    platform: linux/amd64
+    container_name: sql-dwh-project
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "SqlServer!2026"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql-dwh-project-data:/var/opt/mssql
+volumes:
+  sql-dwh-project-data:

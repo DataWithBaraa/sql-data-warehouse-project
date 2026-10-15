@@ -9,7 +9,7 @@ This project demonstrates a comprehensive data warehousing and analytics solutio
 
 ```
 sql-data-warehouse-project/
-├── 00_setup/           the setup guide: SQL Server and SSMS on Windows and Mac
+├── 00_setup/           the setup guide, and the one-click Docker setup for Mac
 ├── datasets/
 │   ├── source_crm/     customers, products, sales details
 │   └── source_erp/     customer birthdates and gender, locations, product categories
