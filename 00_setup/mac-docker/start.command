@@ -34,10 +34,10 @@ fi
 
 # Put the package files where the scripts look.
 docker exec -u root "$TARGET" mkdir -p "/sql/$PKG"
-docker cp "$PKG_DIR/datasets" "$TARGET:/sql/$PKG/" 2>/dev/null || for d in "$PKG_DIR/datasets"; do docker cp "$d" "$TARGET:/sql/$PKG/"; done
+docker cp "$PKG_DIR/01_datasets" "$TARGET:/sql/$PKG/" 2>/dev/null || for d in "$PKG_DIR/01_datasets"; do docker cp "$d" "$TARGET:/sql/$PKG/"; done
 docker exec -u root "$TARGET" chown -R mssql:root /sql
 
-echo "Ready. The datasets are where the scripts look: C:\\sql\\dwh_project\\datasets\\"
-echo "Run scripts/init_database.sql first, then build the warehouse like in the project."
+print -r -- 'Ready. The datasets are where the scripts look: C:\sql\dwh_project\01_datasets\'
+echo "Run 03_scripts/init_database.sql first, then build the warehouse like in the project."
 echo "Connect in Visual Studio Code: server localhost, port 1433, user sa, password $PASSWORD"
 pause

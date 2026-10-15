@@ -11,25 +11,25 @@ You take raw files from two systems, a CRM and an ERP, and build one data wareho
 ```
 sql-data-warehouse-project/
 ├── 00_setup/               the setup guide, and the one-click Docker start for Mac
-├── datasets/               the six source files the project loads
+├── 01_datasets/            the six source files the project loads
 │   ├── source_crm/         three files from the CRM system
 │   └── source_erp/         three files from the ERP system
-├── docs/                   the requirements, the diagrams and the notes
-├── scripts/                the project scripts, in the order of the videos
+├── 02_docs/                the requirements, the diagrams and the notes
+├── 03_scripts/             the project scripts, in the order of the videos
 │   ├── init_database.sql   creates the database: run it first
 │   ├── bronze/             loads the raw files
 │   ├── silver/             cleans and prepares the data
 │   └── gold/               builds the tables for analysis
-└── tests/                  checks the quality of the silver and gold data
+└── 04_tests/               checks the quality of the silver and gold data
 ```
 
-The project reads the six files from `C:\sql\dwh_project\datasets\`, the folder in the videos. Put the folder there, or change the six paths in `scripts/bronze/proc_load_bronze.sql`.
+The project reads the six files from `C:\sql\dwh_project\01_datasets\`. Put the folder there, or change the six paths in `03_scripts/bronze/proc_load_bronze.sql`. The videos show the folders without numbers: `datasets` there is `01_datasets` here, `scripts` is `03_scripts`.
 
 ---
 ## 🏗️ Data Architecture
 
 The data architecture for this project follows Medallion Architecture **Bronze**, **Silver**, and **Gold** layers:
-![Data Architecture](docs/data_architecture.png)
+![Data Architecture](02_docs/data_architecture.png)
 
 1. **Bronze Layer**: Stores raw data as-is from the source systems. Data is ingested from CSV Files into SQL Server Database.
 2. **Silver Layer**: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.
@@ -83,7 +83,7 @@ Develop SQL-based analytics to deliver detailed insights into:
 
 These insights empower stakeholders with key business metrics, enabling strategic decision-making.  
 
-For more details, refer to [docs/requirements.md](docs/requirements.md).
+For more details, refer to [02_docs/requirements.md](02_docs/requirements.md).
 
 ---
 
@@ -121,4 +121,4 @@ More on YouTube: [Data projects](https://www.youtube.com/playlist?list=PLNcg_FV9
 
 ## 🌟 About me
 
-Hi, I'm **Baraa Khatib Salkini**. I spent 17 years in enterprise data engineering and built one of the largest lakehouses at Mercedes-Benz. Today I teach data full-time at **Data With Baraa**: visually, step by step, from zero to hero.
+Hi, I'm **Baraa Khatib Salkini**. I spent years in enterprise data engineering and built one of the largest lakehouses at Mercedes-Benz. Today I teach data full-time at **Data With Baraa**: visually, step by step, from zero to hero.

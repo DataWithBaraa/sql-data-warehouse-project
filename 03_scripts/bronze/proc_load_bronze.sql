@@ -16,7 +16,7 @@ Usage Example:
     EXEC bronze.load_bronze;
 
 Note:
-    The BULK INSERT paths point to 'C:\sql\dwh_project\datasets\'.
+    The BULK INSERT paths point to 'C:\sql\dwh_project\01_datasets\'.
     Change them to the folder where you saved the datasets.
 ===============================================================================
 */
@@ -38,7 +38,7 @@ BEGIN
         TRUNCATE TABLE bronze.crm_cust_info;
         PRINT '>> Inserting Data Into: bronze.crm_cust_info';
         BULK INSERT bronze.crm_cust_info
-        FROM 'C:\sql\dwh_project\datasets\source_crm\cust_info.csv'
+        FROM 'C:\sql\dwh_project\01_datasets\source_crm\cust_info.csv'
         WITH (
             FIRSTROW = 2,
             FIELDTERMINATOR = ',',
@@ -54,7 +54,7 @@ BEGIN
 
         PRINT '>> Inserting Data Into: bronze.crm_prd_info';
         BULK INSERT bronze.crm_prd_info
-        FROM 'C:\sql\dwh_project\datasets\source_crm\prd_info.csv'
+        FROM 'C:\sql\dwh_project\01_datasets\source_crm\prd_info.csv'
         WITH (
             FIRSTROW = 2,
             FIELDTERMINATOR = ',',
@@ -69,7 +69,7 @@ BEGIN
         TRUNCATE TABLE bronze.crm_sales_details;
         PRINT '>> Inserting Data Into: bronze.crm_sales_details';
         BULK INSERT bronze.crm_sales_details
-        FROM 'C:\sql\dwh_project\datasets\source_crm\sales_details.csv'
+        FROM 'C:\sql\dwh_project\01_datasets\source_crm\sales_details.csv'
         WITH (
             FIRSTROW = 2,
             FIELDTERMINATOR = ',',
@@ -88,7 +88,7 @@ BEGIN
         TRUNCATE TABLE bronze.erp_loc_a101;
         PRINT '>> Inserting Data Into: bronze.erp_loc_a101';
         BULK INSERT bronze.erp_loc_a101
-        FROM 'C:\sql\dwh_project\datasets\source_erp\loc_a101.csv'
+        FROM 'C:\sql\dwh_project\01_datasets\source_erp\loc_a101.csv'
         WITH (
             FIRSTROW = 2,
             FIELDTERMINATOR = ',',
@@ -103,7 +103,7 @@ BEGIN
         TRUNCATE TABLE bronze.erp_cust_az12;
         PRINT '>> Inserting Data Into: bronze.erp_cust_az12';
         BULK INSERT bronze.erp_cust_az12
-        FROM 'C:\sql\dwh_project\datasets\source_erp\cust_az12.csv'
+        FROM 'C:\sql\dwh_project\01_datasets\source_erp\cust_az12.csv'
         WITH (
             FIRSTROW = 2,
             FIELDTERMINATOR = ',',
@@ -118,7 +118,7 @@ BEGIN
         TRUNCATE TABLE bronze.erp_px_cat_g1v2;
         PRINT '>> Inserting Data Into: bronze.erp_px_cat_g1v2';
         BULK INSERT bronze.erp_px_cat_g1v2
-        FROM 'C:\sql\dwh_project\datasets\source_erp\px_cat_g1v2.csv'
+        FROM 'C:\sql\dwh_project\01_datasets\source_erp\px_cat_g1v2.csv'
         WITH (
             FIRSTROW = 2,
             FIELDTERMINATOR = ',',
