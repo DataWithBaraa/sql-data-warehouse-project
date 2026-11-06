@@ -154,6 +154,8 @@ Finished the project? Add this badge to the top of your own README, so others ca
 [![Built with Data With Baraa](https://img.shields.io/badge/Built_with-Data_With_Baraa-F5B301?style=for-the-badge)](https://github.com/DataWithBaraa/sql-data-warehouse-project)
 ```
 
+Then show your build to the others in [Discussions, Show and tell](https://github.com/DataWithBaraa/sql-data-warehouse-project/discussions/categories/show-and-tell).
+
 ---
 
 ## 🎓 Learn with me
